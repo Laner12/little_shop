@@ -27,9 +27,9 @@ end
   )
 end
 
-Item.all.each do |item|
-  Order.create.items << item
-end
+# Item.all.each do |item|
+#   Order.create.items << item
+# end
 
 orders = Order.all
 
