@@ -27,9 +27,11 @@ end
   )
 end
 
+Item.all.each do |item|
+  Order.create.items << item
+end
 
-
-orders = Order.all
+orders = Order.all`
 
 20.times do
   User.create(
