@@ -25,10 +25,10 @@ RSpec.feature 'Adjust the quantity of an item in the cart' do
 
     within("#item-#{item.id}") do
       expect(page).to have_content(3)
-      expect(page).to have_content(item.price * 3)
+      expect(page).to have_content("$#{item.price * 3}")
     end
 
-    expect(page).to have_content("Total: #{item.price * 3}")
+    expect(page).to have_content("Total: $#{item.price * 3}")
 
     within("#item-#{item.id}") do
       select(1, from: "item[quantity]")
@@ -42,6 +42,6 @@ RSpec.feature 'Adjust the quantity of an item in the cart' do
       expect(page).to have_content(item.price)
     end
 
-    expect(page).to have_content("Total: #{item.price}")
+    expect(page).to have_content("Total: $#{item.price}")
   end
 end
