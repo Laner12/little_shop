@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'unavailable', on: :collection
   end
   resources :items, only: [:index, :show]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
 
   get '/login', to: 'sessions#new'
