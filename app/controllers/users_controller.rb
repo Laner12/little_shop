@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :verify_logged_in, only: [:show]
+  before_action :verify_admin, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -17,12 +18,36 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    redirect_to admin_dashboard_index_path if current_admin?
+  end
+
+  def edit
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to admin_dashboard_index_path
+    else
+      render :edit
+    end
   end
 
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def verify_admin
+    unless current_admin? && current_user.id == params[:id].to_i
+      if current_admin?
+        flash[:danger] = "Admins can only modify their own accounts"
+        redirect_to dashboard_path
+      else
+        flash[:danger] = "You cannot access admin content!"
+        redirect_to login_path
+      end
+    end
   end
 end

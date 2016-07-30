@@ -31,7 +31,7 @@ RSpec.feature "Visitor sees appropriate information" do
       expect(page).to have_content(item.price)
     end
 
-    # expect(page).to have_button("Checkout")
+    expect(page).to have_link("Checkout")
 
     click_on "Logout"
 

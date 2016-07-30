@@ -28,7 +28,8 @@ end
 end
 
 Item.all.each do |item|
-  Order.create.items << item
+  order = Order.create.items << item
+  OrderItem.find_by(order: order, item: item).update(quantity: 1)
 end
 
 orders = Order.all`
@@ -46,3 +47,14 @@ orders = Order.all`
     zip_code: Faker::Address.zip_code,
   ).orders << orders.shuffle.pop
 end
+
+# Create sold-out item
+Item.create(
+  title: Faker::Commerce.product_name,
+  description: Faker::Hipster.paragraph,
+  price: Faker::Commerce.price.to_f,
+  image_path: Faker::Avatar.image,
+  category_id: Category.all.sample.id,
+  celebrity_id: Celebrity.all.sample.id,
+  status: 1
+)

@@ -6,6 +6,9 @@ FactoryGirl.define do
     image_path
     category
     celebrity
+    factory :sold_out_item do
+      status 1
+    end
   end
 
   factory :celebrity do
@@ -31,6 +34,10 @@ FactoryGirl.define do
     city 'AnyTown'
     state 'CA'
     zip_code 99999
+
+    factory :admin do
+      role 1
+    end
   end
 
   sequence :username do |n|

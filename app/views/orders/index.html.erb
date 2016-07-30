@@ -1,37 +1,34 @@
 <div class="page-content">
   <h1>Order History</h1>
   <% @orders.each do |order| %>
-    <div class="well col-md-12 table-responsive" id="order-<%= order.id %>">
+    <div class="well col-md-8 table-responsive" id="order-<%= order.id %>">
       <table class="table table-hover table-striped">
         <thead>
           <tr>
             <td colspan="5" class="text-left">
-              <strong><%= order.date %></strong>
+              <strong>Order # <%= order.id %></strong>
             </td>
           <tr>
-            <th>Item</th>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Unit Price</th>
-            <th>Subtotal</th>
+            <th>Date Placed</th>
+            <th>Items Ordered</th>
+            <th>Total</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          <% order.items.each do |item| %>
             <tr>
-              <td><%= item.title %></td>
-              <td><%= item.description %></td>
-              <td><%= order.item_count(item) %></td>
-              <td><%= number_to_currency(item.price) %></td>
-              <td><%= number_to_currency(order.sub_tot(item)) %></td>
+              <td><%= order.date %></td>
+              <td><%= order.total_items %></td>
+              <td><%= number_to_currency(order.total) %></td>
+              <td><%= order.status %></td>
             </tr>
-          <% end %>
         <tr>
           <td colspan="5" class="text-right">
-            <strong>Total: <%= number_to_currency(order.tot) %></strong>
+            <strong><%= link_to "Order Details", order_path(order), class:'btn btn-primary' %></strong>
           </td>
         <tr>
       </tbody>
     </table>
+  </div>
   <% end %>
 </div>

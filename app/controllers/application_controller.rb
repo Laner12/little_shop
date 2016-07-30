@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :verify_logged_in
+  helper_method :current_user, :verify_logged_in, :categories
 
   before_action :set_cart
 
@@ -15,8 +15,16 @@ class ApplicationController < ActionController::Base
 
   def verify_logged_in
     unless current_user
-      flash[:danger] = "Please login to view your dashboard"
+      flash[:danger] = "Please login to view this page"
       redirect_to login_path
     end
+  end
+
+  def current_admin?
+    current_user && current_user.admin?
+  end
+
+  def categories
+    @categories = Category.all
   end
 end

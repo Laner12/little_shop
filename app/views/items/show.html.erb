@@ -6,7 +6,11 @@
       <h2><p>Celebrity: <%= @item.celebrity_name %></h2></p>
       <p><%= @item.description %></p>
       <p><%= number_to_currency(@item.price) %><p>
-      <p><%= button_to 'Add to Cart', cart_items_path(item_id: @item.id.to_i), class: 'btn btn-default' %></p>
+      <% if @item.sold_out? %>
+        <p><%= link_to 'SOLD OUT', cart_items_path(item_id: @item.id), class: 'btn btn-danger', disabled: 'disabled' %></p>
+      <% else %>
+        <p><%= button_to 'Add to Cart', cart_items_path(item_id: @item.id), class: 'btn btn-default' %></p>
+      <% end %>
     </div>
   </div>
 </div>

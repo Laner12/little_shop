@@ -6,7 +6,13 @@ class Item < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :celebrity_id }
   validates :price, presence: true
 
+  enum status: %w(available unavailable)
+
   def celebrity_name
     celebrity.name
+  end
+
+  def sold_out?
+    status == 'unavailable'
   end
 end

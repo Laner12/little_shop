@@ -41,7 +41,7 @@
   <%= link_to 'Back to All Items', items_path, class: 'col-md-2 btn btn-default' %>
   <% unless @cart.contents.empty? %>
     <% if current_user %>
-      <!-- <%= link_to 'Checkout', root_path, class: 'col-md-2 col-md-offset-8 btn btn-primary' %> -->
+      <%= link_to 'Checkout', orders_path, method: :post, class: 'col-md-2 col-md-offset-8 btn btn-primary' %>
     <% else %>
       <%= link_to 'Login or Create Account to Checkout', login_path, class: 'col-md-3 col-md-offset-7 btn btn-info' %>
     <% end %>

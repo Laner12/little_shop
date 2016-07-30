@@ -8,17 +8,25 @@
     </li>
     <li>
       <%= link_to items_path do %>
-        <i class="fa fa-list"></i> All Items
+        <i class="fa fa-align-justify"></i> All Items
       <% end %>
     </li>
     <li>
-      <%= link_to root_path do %>
-        <i class="fa fa-heart"></i> Placeholder
-      <% end %>
+      <a class="" href="#" data-toggle="collapse" data-target="#categories">
+      <i class="fa fa-toggle-down"></i> Categories</a>
+      <div id="categories" class="collapse">
+        <% categories.each do |category| %>
+        <div class="category">
+          <p>
+            <%= link_to category.title, category_path(category), class:"category" %>
+          </p>
+        </div>
+        <% end %>
+      </div>
     </li>
     <li>
-      <%= link_to root_path do %>
-        <i class="fa fa-heart"></i> Placeholder
+      <%= link_to unavailable_items_path do %>
+        <i class="fa fa-trophy"></i> Best Of
       <% end %>
     </li>
     <li>

@@ -18,6 +18,10 @@
     font-family: 'Droid Sans', sans-serif;
     padding-top: 80px;
     color: #555;
+    background-image: asset-url-path('elvis.png');
+     background-attachment: fixed;
+     background-repeat: no-repeat;
+     background-size: cover;
   }
 
   input
@@ -33,13 +37,16 @@
     width: 220px;
   }
 
+  .home {
+    padding-bottom: 50%;
+  }
+
   .center {
       right:46%;
-      bottom: 50%;
+      bottom: 35%;
       transform: translate(50%,50%);
       position: absolute;
   }
-
 
   .page-content {
     padding-right: 15px;
