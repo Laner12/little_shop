@@ -28,4 +28,12 @@ class Order < ApplicationRecord
     items.reduce(0) { |initial, item| initial += item_quantity(item) }
   end
 
+  def total_in_cents
+    total.to_f * 100
+  end
+
+  def ordered?
+    status == "ordered"
+  end
+  
 end
