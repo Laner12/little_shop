@@ -20,7 +20,7 @@ RSpec.feature "User sees one order's detail" do
 
     expect(current_path).to eq(order_path(order))
     expect(page).to have_content(order.status)
-    
+
     within("#item-#{item.id}") do
       expect(page).to have_content(item.title)
       expect(page).to have_content(item.description)

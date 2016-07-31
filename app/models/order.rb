@@ -35,5 +35,5 @@ class Order < ApplicationRecord
   def ordered?
     status == "ordered"
   end
-  
+
 end

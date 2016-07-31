@@ -6,16 +6,17 @@ class ChargesController < ApplicationController
     @amount = 0
 
     customer  = Stripe::Customer.create(
-    :email => current_user.email,
-    :source => params[:stripeToken]
+      email:  current_user.email,
+      source: params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
-    :customer    => customer.id,
-    :amount      => @amount,
-    :description => 'Rails Stripe customer',
-    :currency    => 'usd'
+    Stripe::Charge.create(
+      customer:    customer.id,
+      amount:      @amount,
+      description: 'Rails Stripe customer',
+      currency:    'usd'
     )
+
     order = Order.find(params[:orderid].to_i)
     order.update(status: 1)
     redirect_to orders_path
@@ -24,7 +25,4 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to orders_path
   end
-
-
-
 end
