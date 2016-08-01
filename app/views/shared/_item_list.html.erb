@@ -17,6 +17,9 @@
       <%= content_tag :div do %>
         <%= button_to "#{btn_label}", cart_items_path(item_id: item.id), class: "center_button btn btn-#{btn_class}", disabled: status %>
       <% end %>
+      <% if current_admin? %>
+      <%= link_to "Edit", edit_item_path(item), class: "center_button btn btn-primary" %>
+      <% end %>
     </div>
   <% end %>
 </div>

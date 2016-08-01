@@ -9,6 +9,7 @@ RSpec.describe Item, type: :model do
   it { should validate_presence_of :price }
   it { should validate_presence_of :title }
   it { should have_db_column(:status).with_options(default: 'available') }
+  it { should validate_presence_of :image_path }
 
   it "should give celebrity name" do
     item = create(:item)
