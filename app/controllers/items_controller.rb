@@ -21,9 +21,24 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    
+
     item.update_attributes(item_params)
     redirect_to item
+  end
+
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      flash[:success] = 'Treasure added successfully'
+      redirect_to @item
+    else
+      flash.now[:danger] = @item.errors.full_messages.join(', ')
+      render :new
+    end
   end
 
   private

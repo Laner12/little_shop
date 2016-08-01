@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :items do
     get 'unavailable', on: :collection
   end
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show, :new, :create]
   resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
   resources :charges

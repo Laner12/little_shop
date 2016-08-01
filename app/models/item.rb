@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :celebrity_id }
   validates :price, presence: true
   validates :image_path, presence: true
+  validates :category, presence: true
+  validates :celebrity, presence: true
 
   enum status: %w(available unavailable)
 
