@@ -1,7 +1,7 @@
 <div class="item-show">
   <div class="well col-md-10">
     <h1><%= @item.title %></h1>
-    <%= image_tag(@item.image_path, alt: "#{@item.title} pic", class: 'img-thumbnail', style: 'float:left') %>
+    <%= image_tag(@item.image_path, alt: "#{@item.title} pic", class: 'img-thumbnail show-image', style: 'float:left') %>
     <div class="item-content">
       <h2><p>Celebrity: <%= @item.celebrity_name %></h2></p>
       <p><%= @item.description %></p>

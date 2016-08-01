@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserNotifierMailer.send_signup_email(@user).deliver
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else

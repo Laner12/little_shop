@@ -19,13 +19,14 @@ RSpec.feature "User sees one order's detail" do
     click_on "Order Details"
 
     expect(current_path).to eq(order_path(order))
+    expect(page).to have_content(order.status)
+
     within("#item-#{item.id}") do
       expect(page).to have_content(item.title)
       expect(page).to have_content(item.description)
       expect(page).to have_content(order.item_quantity(item))
       expect(page).to have_content(item.price)
       expect(page).to have_content(order.sub_total(item))
-      expect(page).to have_content(order.status)
       expect(page).to have_content(order.time_updated)
     end
     expect(page).to have_content(order.total)

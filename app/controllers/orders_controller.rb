@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
   def create
     save_order
+    UserNotifierMailer.send_confirmation_email(current_user, @order).deliver
     session[:cart] = nil
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
@@ -20,11 +21,11 @@ class OrdersController < ApplicationController
   private
 
   def save_order
-    order = Order.create(user: current_user)
+    @order = Order.create(user: current_user)
     @cart.all_items.each do |item|
       order_item = Item.find(item.id)
-      order.items << order_item
-      OrderItem.find_by(order: order, item: order_item).update(quantity: item.quantity)
+      @order.items << order_item
+      OrderItem.find_by(order: @order, item: order_item).update(quantity: item.quantity)
     end
   end
 

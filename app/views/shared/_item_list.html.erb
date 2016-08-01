@@ -2,7 +2,7 @@
   <% @items.each do |item| %>
     <div class = "well col-md-3 text-center" id="item-<%= item.id %>">
       <p>
-        <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail') %>
+        <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail item-image') %>
       </p>
       <p>
       <a id="popoverData" class="btn" href="<%= item_path(item) %>" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Backstory" data-trigger="hover">

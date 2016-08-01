@@ -15,7 +15,6 @@ RSpec.feature "Checking out" do
 
     click_on "Login or Create Account to Checkout"
     fill_in "Username", with: user.username
-    fill_in "Email", with: user.email
     fill_in "Password", with: 'password'
     within('form') do
       click_on "Login"

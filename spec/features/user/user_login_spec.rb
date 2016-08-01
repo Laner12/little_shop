@@ -7,7 +7,6 @@ RSpec.feature "User can login" do
     visit login_path
 
     fill_in "Username", with: "lane"
-    fill_in "Email", with: "lane@nil.com"
     fill_in "Password", with: "password"
     click_button "Login"
 

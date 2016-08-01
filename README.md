@@ -1,24 +1,11 @@
-# README
+# Little Shop
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Little Shop is a Turing School of Software and Design Module 2 final group project.
 
-Things you may want to cover:
+One Fan's Treasure is an exploration into e-commerce with Rails. CRUD, authorization, and authentication are all fully utilized to allow a user to create an account, purchase items, and receive confirmation. An administrator has additional privileges (i.e., the ability to edit their account).
 
-* Ruby version
+Extensions include e-mail confirmation, Stripe for payment processing, and OAuth.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Contributors:
+* [Ryan Flach](https://github.com/ryanflach)
+* [Angela Lindow](https://github.com/allindow)

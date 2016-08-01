@@ -38,7 +38,7 @@
 .user-info {
   float: none;
   position: fixed;
-  padding-left: 90%;
+  padding-left: 87%;
   padding-top: 10px;
 }
 
@@ -52,7 +52,7 @@
 }
 
 #categories {
-  padding-left: 5%;
+  padding-left: 8%;
 }
 
 .category:hover {
