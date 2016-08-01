@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
   has_many :items, through: :order_items
-  enum status: %w(ordered paid cancelled completed)
+  enum status: %w(Ordered Paid Cancelled Completed)
 
   def date
     created_at.strftime("%m/%d/%Y")
@@ -33,7 +33,7 @@ class Order < ApplicationRecord
   end
 
   def ordered?
-    status == "ordered"
+    status == "Ordered"
   end
 
 end

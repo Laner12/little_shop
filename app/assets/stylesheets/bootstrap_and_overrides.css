@@ -10,6 +10,17 @@
     padding-left: 400px;
   }
 
+  .item-image {
+    height: 200px;
+    width: auto;
+  }
+
+  .show-image {
+    height: auto;
+    width: 400px;
+    margin-right: 10px;
+  }
+
   .item-show {
     padding-left: 200px;padding-top: 50px;
   }
