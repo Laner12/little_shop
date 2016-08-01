@@ -6,13 +6,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:session][:username])
-    if @user && @user.authenticate(params[:session][:password])
+    if params[:commit]
+      @user = User.find_by(username: params[:session][:username])
+      if @user && @user.authenticate(params[:session][:password])
+        session[:user_id] = @user.id
+        redirect_based_on_referrer
+      else
+        flash.now[:danger] = "Login information incorrect."
+        render :new
+      end
+    elsif @user = User.from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = @user.id
-      redirect_based_on_referrer
+      redirect_to dashboard_path
     else
-      flash.now[:danger] = "Login information incorrect."
-      render :new
+      redirect_to login_path
     end
   end
 
@@ -37,3 +44,19 @@ class SessionsController < ApplicationController
     end
   end
 end
+# def create
+#   if @user = User.from_omniauth(request.env["omniauth.auth"])
+#     session[:user_id] = @user.id
+#     redirect_based_on_referrer
+#   else
+#     redirect_to login_path
+#   end
+#   # @user = User.find_by(username: params[:session][:username])
+#   # if @user && @user.authenticate(params[:session][:password])
+#   #   session[:user_id] = @user.id
+#   #   redirect_based_on_referrer
+#   # else
+#   #   flash.now[:danger] = "Login information incorrect."
+#   #   render :new
+#   # end
+# end
