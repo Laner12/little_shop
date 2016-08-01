@@ -14,6 +14,21 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update_attributes(item_params)
+    if item.update_attributes(item_params)
+      redirect_to item
+    else
+      flash.now[:danger] = item.errors.full_messages.join(', ')
+      render :edit
+    end
+  end
+  
   private
 
   def item_params

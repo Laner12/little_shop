@@ -6,5 +6,4 @@ module ApplicationHelper
   def admin_edit?
     current_admin? && request.path == edit_user_path(current_user)
   end
-  
 end

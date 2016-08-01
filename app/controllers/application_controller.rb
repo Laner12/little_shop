@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :verify_logged_in, :categories, :current_admin?, :verify_current_admin
+  helper_method :current_user, :verify_logged_in, :categories, :current_admin?
 
   before_action :set_cart
 
@@ -27,9 +27,4 @@ class ApplicationController < ActionController::Base
   def categories
     @categories = Category.all
   end
-
-  def verify_current_admin
-    render file: '/public/404' unless current_admin?
-  end
-
 end

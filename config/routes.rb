@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :items, only: [:new, :create]
+    resources :items, only: [:new, :create, :edit, :update]
   end
   root to: 'home#index'
   resources :cart_items, only: [:create, :update, :destroy]

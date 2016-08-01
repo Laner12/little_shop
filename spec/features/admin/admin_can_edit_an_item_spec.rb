@@ -12,7 +12,7 @@ RSpec.feature "Admin can edit an item" do
       click_on "Edit"
     end
 
-    expect(current_path).to eq(edit_item_path(item))
+    expect(current_path).to eq(edit_admin_item_path(item))
     fill_in "Title", with: "Hairbrush"
     click_on "Update Item"
 
@@ -26,8 +26,8 @@ RSpec.feature "Admin can edit an item" do
     item = create(:item)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit edit_item_path(item)
+    visit edit_admin_item_path(item)
 
-    expect(page).to have_content("The page you were looking for doesn't exist")
+    expect(page).to have_content("You cannot access admin content")
   end
 end
