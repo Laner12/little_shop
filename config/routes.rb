@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
+    resources :items, only: [:new, :create]
   end
   root to: 'home#index'
   resources :cart_items, only: [:create, :update, :destroy]
   resources :cart, only: [:index]
-  resources :items do
+  resources :items, only: [:index, :show] do
     get 'unavailable', on: :collection
   end
-  resources :items, only: [:index, :show, :new, :create]
+  # resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
   resources :charges

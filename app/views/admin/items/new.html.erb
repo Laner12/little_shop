@@ -1,7 +1,7 @@
 <div class="page-content">
   <h1>Add New Treasure</h1>
   <div class="well col-md-7 col-md-offset-2">
-    <%= form_for(@item) do |f| %>
+    <%= form_for(@item, url: admin_items_path) do |f| %>
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, class: 'form-control' %>

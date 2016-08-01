@@ -12,7 +12,7 @@ RSpec.feature 'Admin creates an item' do
       visit items_path
       click_on 'Add New Treasure'
 
-      expect(current_path).to eq(new_item_path)
+      expect(current_path).to eq(new_admin_item_path)
 
       fill_in 'Title', with: 'Creamy Ranch Dressing'
       fill_in 'Description', with: "It's not self-indulgent when it's the best. By Newman, for Newman."
@@ -31,7 +31,7 @@ RSpec.feature 'Admin creates an item' do
 
   context 'with valid information and photo' do
     xscenario 'logged-in admin visits the items path' do
-      
+
     end
   end
 
