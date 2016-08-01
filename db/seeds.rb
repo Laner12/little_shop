@@ -32,7 +32,7 @@ Item.all.each do |item|
   OrderItem.find_by(order: order, item: item).update(quantity: 1)
 end
 
-orders = Order.all`
+orders = Order.all
 
 20.times do
   User.create(
