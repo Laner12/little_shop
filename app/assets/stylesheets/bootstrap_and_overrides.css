@@ -18,10 +18,10 @@
     font-family: 'Droid Sans', sans-serif;
     padding-top: 80px;
     color: #555;
-    background-image: asset-url-path('elvis.png');
-     background-attachment: fixed;
-     background-repeat: no-repeat;
-     background-size: cover;
+    background-image: url('http://i.imgur.com/IZno6ik.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   input
