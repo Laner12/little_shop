@@ -73,9 +73,9 @@ end
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
       provider: 'twitter',
+      uid: "1234",
       extra: {
         raw_info: {
-          uid: "1234",
           screen_name: "twitter_login",
         }
       },
