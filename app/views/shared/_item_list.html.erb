@@ -1,6 +1,8 @@
 <div id="items_list">
+  <div class="items">
   <% @items.each do |item| %>
-    <div class = "well col-md-3 text-center" id="item-<%= item.id %>">
+    <div class='item' data-all="<%= item.title %> <%= item.celebrity_name %> <%= item.category.title %>">
+    <div class ="well col-md-3 text-center" id="item-<%= item.id %>">
       <p>
         <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail item-image') %>
       </p>
@@ -19,5 +21,7 @@
       <% end %>
       <%= link_to "Edit", edit_admin_item_path(item), class: "center_button btn btn-default" if current_admin? %>
     </div>
+  </div>
   <% end %>
+</div>
 </div>

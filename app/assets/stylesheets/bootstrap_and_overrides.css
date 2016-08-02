@@ -44,6 +44,7 @@
     float: right;
   }
 
+
   .center_button {
     float: none;
   }
@@ -70,4 +71,16 @@
 
   th, td {
     background-color: rgba(255, 255, 255, .75);
+  }
+
+  .filter-bar {
+    color: #232b2b;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: right;
+  }
+
+  .filter-field {
+    background-color: rgba(255, 255, 255, .75);
+    width: 500px;
   }
