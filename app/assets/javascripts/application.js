@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-$('popoverData').popover();
-$('#popoverOption').popover({ trigger: "hover" });
+// $('popoverData').popover();
+// $('#popoverOption').popover({ trigger: "hover");

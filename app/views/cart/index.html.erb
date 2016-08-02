@@ -15,7 +15,10 @@
     <tbody>
       <% @items.each do |item| %>
         <tr id="item-<%= item.id %>">
-          <td><%= item.title %></td>
+          <td>
+            <%= item.title %>
+            <%= image_tag item.image_path, class: "cart-pic" %>
+          </td>
           <td><%= item.description %></td>
           <td>
             <%= form_for(item, url: cart_item_path(item)) do |f| %>

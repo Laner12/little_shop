@@ -25,6 +25,8 @@ RSpec.feature "User information is secure from others" do
     visit items_path
     click_on "Add to Cart"
 
+    visit cart_index_path
+
     expect(page).to have_link("Login or Create Account to Checkout")
 
     visit edit_user_path(User.first)
@@ -64,9 +66,9 @@ def place_order
 
   visit items_path
   click_on "Add to Cart"
-
-  visit items_path
   click_on "Add to Cart"
+
+  visit cart_index_path
   click_on "Checkout"
 
   click_on 'Logout'

@@ -1,15 +1,13 @@
-<div id="items_list">
-  <div class="items">
+  <div id="items_list">
   <% @items.each do |item| %>
     <div class='item' data-all="<%= item.title %> <%= item.celebrity_name %> <%= item.category.title %>">
-    <div class ="well col-md-3 text-center" id="item-<%= item.id %>">
+    <div class ="well col-md-3 item-in-list" id="item-<%= item.id %>">
+      <a id="popoverData" href="<%= item_path(item) %>" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Description" data-trigger="hover">
+        <%= item.title %>
+      </a>
       <p>
         <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail item-image') %>
       </p>
-      <p>
-      <a id="popoverData" class="btn" href="<%= item_path(item) %>" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Description" data-trigger="hover">
-        <%= item.title %>
-      </a>
       <p>
         Celebrity: <%= item.celebrity_name %>
       </p>
@@ -23,5 +21,4 @@
     </div>
   </div>
   <% end %>
-</div>
 </div>

@@ -4,7 +4,7 @@
     <%= image_tag(@item.image_path, alt: "#{@item.title} pic", class: 'img-thumbnail show-image', style: 'float:left') %>
     <div class="item-content">
       <h2><p>Celebrity: <strong><%= @item.celebrity_name %></strong></h2></p>
-      <p>Category: <%= @item.category.title %></p>
+      <h4><p>Category: <%= @item.category.title %></p></h4>
       <p><%= @item.description %></p>
       <p><%= number_to_currency(@item.price) %><p>
       <% if @item.sold_out? %>
