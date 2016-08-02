@@ -5,7 +5,7 @@
         <%= image_tag(item.image_path, alt: "#{item.title} pic", class: 'img-thumbnail item-image') %>
       </p>
       <p>
-      <a id="popoverData" class="btn" href="<%= item_path(item) %>" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Backstory" data-trigger="hover">
+      <a id="popoverData" class="btn" href="<%= item_path(item) %>" data-content="<%= item.description %>" rel="popover" data-placement="bottom" data-original-title="Description" data-trigger="hover">
         <%= item.title %>
       </a>
       <p>
@@ -17,6 +17,7 @@
       <%= content_tag :div do %>
         <%= button_to "#{btn_label}", cart_items_path(item_id: item.id), class: "center_button btn btn-#{btn_class}", disabled: status %>
       <% end %>
+      <%= link_to "Edit", edit_admin_item_path(item), class: "center_button btn btn-default" if current_admin? %>
     </div>
   <% end %>
 </div>
