@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       end
     elsif @user = User.from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = @user.id
-      redirect_to dashboard_path
+      redirect_based_on_referrer
     else
       redirect_to login_path
     end
