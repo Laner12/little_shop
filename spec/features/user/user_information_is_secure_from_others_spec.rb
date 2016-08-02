@@ -20,8 +20,7 @@ RSpec.feature "User information is secure from others" do
     expect(current_path).to eq(login_path)
 
     visit admin_dashboard_index_path
-
-    expect(page).to have_content("You cannot access admin content!")
+    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
 
     visit items_path
     click_on "Add to Cart"
@@ -29,7 +28,7 @@ RSpec.feature "User information is secure from others" do
     expect(page).to have_link("Login or Create Account to Checkout")
 
     visit edit_user_path(User.first)
-    expect(page).to have_content("You cannot access admin content!")
+    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
   end
 
   scenario "logged-in user attempts to visit another user's show page" do
@@ -43,10 +42,10 @@ RSpec.feature "User information is secure from others" do
     expect(current_path).to eq(dashboard_path)
 
     visit admin_dashboard_index_path
-    expect(page).to have_content("You cannot access admin content!")
+    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
 
     visit edit_user_path(user)
-    expect(page).to have_content("You cannot access admin content!")
+    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
   end
 end
 

@@ -28,6 +28,6 @@ RSpec.feature "Admin can edit an item" do
 
     visit edit_admin_item_path(item)
 
-    expect(page).to have_content("You cannot access admin content")
+    expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
   end
 end
