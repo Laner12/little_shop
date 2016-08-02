@@ -63,3 +63,25 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def setup_for_oauth
+  Capybara.app = LittleShop::Application
+  stub_omniauth
+end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+    provider: 'twitter',
+    uid: "1234",
+    extra: {
+      raw_info: {
+        screen_name: "twitter_login",
+      }
+    },
+    credentials: {
+      token: "token",
+      secret: "secret_token"
+    }
+  })
+end

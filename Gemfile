@@ -55,3 +55,4 @@ gem 'rails_12factor', group: :production
 
 gem 'figaro'
 gem 'stripe'
+gem "omniauth-twitter"

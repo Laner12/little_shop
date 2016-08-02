@@ -68,11 +68,15 @@ ActiveRecord::Schema.define(version: 20160801212802) do
     t.string   "last_name"
     t.string   "address"
     t.string   "city"
-    t.string   "state",           default: "ZZ"
-    t.integer  "zip_code",        default: 99999
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "role",            default: 0
+    t.string   "state",              default: "ZZ"
+    t.integer  "zip_code",           default: 99999
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "role",               default: 0
+    t.string   "screen_name"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.string   "oauth_token_secret"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
