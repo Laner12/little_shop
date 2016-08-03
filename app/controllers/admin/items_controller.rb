@@ -1,4 +1,6 @@
 class Admin::ItemsController < Admin::BaseController
+  before_action :set_item, only: [:edit, :update]
+
   def new
     @item = Item.new
   end
@@ -15,16 +17,15 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update_attributes(item_params)
-      item.update_image_path
-      redirect_to item
+    if @item.update_attributes(item_params)
+      flash[:success] = "#{@item.title} updated successfully."
+      @item.update_image_path
+      redirect_to @item
     else
-      flash.now[:danger] = item.errors.full_messages.join(', ')
+      flash.now[:danger] = @item.errors.full_messages.join(', ')
       render :edit
     end
   end
@@ -32,7 +33,16 @@ class Admin::ItemsController < Admin::BaseController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :category_id, :celebrity_id, :upload_image)
+    params.require(:item).permit(:title,
+                                 :description,
+                                 :price,
+                                 :category_id,
+                                 :celebrity_id,
+                                 :upload_image)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

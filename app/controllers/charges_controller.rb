@@ -1,28 +1,20 @@
 class ChargesController < ApplicationController
+  include ChargesHelper
+  before_action :set_order, only: [:create]
+
   def new
   end
 
   def create
-    @amount = 0
-
-    customer  = Stripe::Customer.create(
-      email:  current_user.email,
-      source: params[:stripeToken]
-    )
-
-    Stripe::Charge.create(
-      customer:    customer.id,
-      amount:      @amount,
-      description: 'Rails Stripe customer',
-      currency:    'usd'
-    )
-
-    order = Order.find(params[:orderid].to_i)
-    order.update(status: 1)
+    charge_customer
+    @order.update(status: 1)
     redirect_to orders_path
+    rescue_from_error
+  end
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to orders_path
+  private
+
+  def set_order
+    @order = Order.find(params[:orderid])
   end
 end

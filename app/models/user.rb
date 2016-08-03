@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   enum role: %w(default admin)
 
+  after_create :send_welcome_email
+
   def date_registered
     created_at.strftime("%m/%d/%Y")
   end
@@ -20,5 +22,9 @@ class User < ApplicationRecord
       new_user.oauth_token     = auth_info.credentials.token
       new_user.password_digest = auth_info.credentials.secret
     end
+  end
+
+  def send_welcome_email
+    UserNotifierMailer.send_signup_email(self).deliver if self.email
   end
 end

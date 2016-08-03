@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include UsersHelper
+
   before_action :verify_logged_in, only: [:show]
   before_action :verify_admin, only: [:edit, :update]
 
@@ -9,7 +11,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserNotifierMailer.send_signup_email(@user).deliver
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
@@ -40,14 +41,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 
-  def verify_admin
-    unless current_admin? && current_user.id == params[:id].to_i
-      if current_admin?
-        flash[:danger] = "Admins can only modify their own accounts"
-        redirect_to dashboard_path
-      else
-        render file: '/public/404', status => 404, :layout => true
-      end
-    end
-  end
 end

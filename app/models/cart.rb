@@ -20,15 +20,21 @@ class Cart
     elsif contents.values.max < 2
       Item.find(contents.keys).pluck(:price).sum
     else
-      contents.reduce(0) do |initial, (item_id, quantity)|
-        initial += CartItem.new(item_id, quantity).sub_total
-      end
+      process_sum
     end
   end
 
   def all_items
     contents.map do |item_id, quantity|
       CartItem.new(item_id, quantity)
+    end
+  end
+
+  private
+
+  def process_sum
+    all_items.reduce(0) do |initial, item|
+      initial += item.sub_total
     end
   end
 

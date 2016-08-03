@@ -14,6 +14,8 @@ class Item < ApplicationRecord
 
   enum status: %w(available unavailable)
 
+  after_create :set_image_path
+
   def celebrity_name
     celebrity.name
   end
@@ -23,12 +25,18 @@ class Item < ApplicationRecord
   end
 
   def update_image_path
-    update(image_path: upload_image.url)
+    unless upload_image.url == 'http://i.imgur.com/5p6sEsX.jpg'
+      update_image
+    end
+  end
+
+  def set_image_path
+    update_image unless image_path
   end
 
   private
 
-  def set_image_path
-    update_image_path unless image_path
+  def update_image
+    update(image_path: upload_image.url)
   end
 end
