@@ -8,8 +8,9 @@ RSpec.feature "User can view past orders" do
 
     visit items_path
     click_on "Add to Cart"
-    visit items_path
     click_on "Add to Cart"
+
+    visit cart_index_path
     click_on "Checkout"
 
     order = Order.first

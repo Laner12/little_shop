@@ -6,7 +6,7 @@ class CartItemsController < ApplicationController
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
     flash[:success] = "#{item.title} added to cart successfully. Cart now contains #{@cart.total_items} items."
-    redirect_to cart_index_path
+    redirect_to request.referrer
   end
 
   def update

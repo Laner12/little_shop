@@ -11,7 +11,9 @@ RSpec.feature 'Add item to cart' do
       click_on 'Add to Cart'
     end
 
-    expect(current_path).to eq(cart_index_path)
+    expect(current_path).to eq(current_path)
+
+    visit cart_index_path
 
     within('tbody') do
       expect(page).to have_content(item.title)
