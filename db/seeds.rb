@@ -13,6 +13,11 @@ gary = Celebrity.create(name: "Gary Busey")
 cyndi = Celebrity.create(name: "Cyndi Lauper")
 chris = Celebrity.create(name: "Chris Farley")
 flavor = Celebrity.create(name: "Flavor Flave")
+vin = Celebrity.create(name: "Vin Diesel")
+tom = Celebrity.create(name: "Tom Hanks")
+leo = Celebrity.create(name: "Leonardo Dicaprio")
+arnold = Celebrity.create(name: "Arnold Schwarzenegger")
+charlie = Celebrity.create(name: "Charlie Sheen")
 
 Item.create(
   title: 'Broken Swiffer',
@@ -156,4 +161,58 @@ Item.create(
   category: health,
   celebrity: hulk,
   image_path: "http://i.imgur.com/7Muqvq2.jpg"
+)
+
+Item.create(
+  title: "Willson (volleyball)",
+  description: "This is the companion that we all watched and wanted during
+  the emotional tale portrayed in Cast Away. The opportunity to gain a friend
+  and piece of history is now!",
+  price: 760.00,
+  category: entertainment,
+  celebrity: tom,
+  image_path: "http://i.imgur.com/XDSCwr4.jpg"
+)
+
+Item.create(
+  title: "Straight Razor",
+  description: "You may have thought it was all natural but Vin was maintaining
+  his unique look with this timeless tool!",
+  price: 35.75,
+  category: bathroom,
+  celebrity: vin,
+  image_path: "http://i.imgur.com/LT9Jeka.jpg"
+)
+
+Item.create(
+  title: "Oscar Award",
+  description: "One would have to wonder how long Leo has been wanting an Oscar
+  of his own. In 2016, his goal was achieved and he immediately donated his Oscar
+  to us.",
+  price: 1250.00,
+  category: entertainment,
+  celebrity: leo,
+  image_path: "http://i.imgur.com/ET3lR7u.jpg"
+)
+
+Item.create(
+  title: "Blender",
+  description: "This slightly used blender was used by none other than Arnold
+  Schwarzenegger on his redemption tour in the realm of bodybuilding. You can
+  also gain and win with this product.",
+  price: 250.00,
+  category: kitchen,
+  celebrity: arnold,
+  image_path: "http://i.imgur.com/r8TlVsW.jpg"
+)
+
+Item.create(
+  title: "Flask",
+  description: "This was a secretly prized possesion of Charlie Sheen until the
+  night of its misplacement. Luckily, it can now be yours!",
+  price: 365.00,
+  category: entertainment,
+  celebrity: charlie,
+  image_path: "http://i.imgur.com/RIwQsL4.jpg",
+  status: 1
 )
