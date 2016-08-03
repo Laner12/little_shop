@@ -4,6 +4,8 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
   enum status: %w(Ordered Paid Cancelled Completed)
 
+  after_create :send_order_confirmation
+
   def date
     created_at.strftime("%m/%d/%Y")
   end
@@ -36,4 +38,11 @@ class Order < ApplicationRecord
     status == "Ordered"
   end
 
+  private
+
+  def send_order_confirmation
+    if @current_user && @current_user.email
+      UserNotifierMailer.send_confirmation_email(@current_user, self).deliver
+    end
+  end
 end

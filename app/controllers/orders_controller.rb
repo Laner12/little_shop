@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
 
   def create
     save_order
-    UserNotifierMailer.send_confirmation_email(current_user, @order).deliver
     session[:cart] = nil
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
