@@ -3,6 +3,7 @@ kitchen = Category.create(title: "Kitchen")
 cleaning = Category.create(title: 'Cleaning')
 bathroom = Category.create(title: 'Bathroom')
 entertainment = Category.create(title: 'Entertainment')
+outdoors = Category.create(title: 'Outdoors')
 
 jt = Celebrity.create(name: 'Justin Timberlake')
 jtt = Celebrity.create(name: 'Jonathan Taylor Thomas')
@@ -13,6 +14,12 @@ gary = Celebrity.create(name: "Gary Busey")
 cyndi = Celebrity.create(name: "Cyndi Lauper")
 chris = Celebrity.create(name: "Chris Farley")
 flavor = Celebrity.create(name: "Flavor Flave")
+vin = Celebrity.create(name: "Vin Diesel")
+tom = Celebrity.create(name: "Tom Hanks")
+leo = Celebrity.create(name: "Leonardo Dicaprio")
+arnold = Celebrity.create(name: "Arnold Schwarzenegger")
+charlie = Celebrity.create(name: "Charlie Sheen")
+britney = Celebrity.create(name: "Britney Spears")
 
 Item.create(
   title: 'Broken Swiffer',
@@ -156,4 +163,83 @@ Item.create(
   category: health,
   celebrity: hulk,
   image_path: "http://i.imgur.com/7Muqvq2.jpg"
+)
+
+Item.create(
+  title: "Willson (volleyball)",
+  description: "This is the companion that we all watched and wanted during
+  the emotional tale portrayed in Cast Away. The opportunity to gain a friend
+  and piece of history is now!",
+  price: 760.09,
+  category: entertainment,
+  celebrity: tom,
+  image_path: "http://i.imgur.com/XDSCwr4.jpg"
+)
+
+Item.create(
+  title: "Dull Straight Razor",
+  description: "You may have thought it was all natural, but Vin was maintaining
+  his unique look with this timeless tool for years! He has upgraded to an ever-sharp
+  platinum coated razor, but now you can upgrade your collection of celebrity treasures
+  at a bargain price!",
+  price: 35.75,
+  category: bathroom,
+  celebrity: vin,
+  image_path: "http://i.imgur.com/LT9Jeka.jpg"
+)
+
+Item.create(
+  title: "Oscar Award",
+  description: 'One would have to wonder how long Leo has been wanting an Oscar
+  of his own. In 2016, his goal was achieved, and he immediately donated his Oscar
+  to us. Why? We asked, too! Leo told us, "After wanting it for so long, it is
+  just weighing me down. Recycling just seems like the right thing to do, you
+  know?" We sure do!',
+  price: 15259.99,
+  category: entertainment,
+  celebrity: leo,
+  image_path: "http://i.imgur.com/ET3lR7u.jpg"
+)
+
+Item.create(
+  title: "Blender",
+  description: "This slightly used blender was used by none other than Arnold
+  Schwarzenegger on his redemption tour in the realm of bodybuilding. You can
+  also gain and win with this product.",
+  price: 250.01,
+  category: kitchen,
+  celebrity: arnold,
+  image_path: "http://i.imgur.com/r8TlVsW.jpg"
+)
+
+Item.create(
+  title: "Flask Containing Mystery Liquor",
+  description: 'This was a secretly prized possesion of Charlie Sheen until the
+  night he accidentally left it in the cab of a taxi in Slicklizzard, Alabama.
+  Because respect and honesty are at our core values, When we acquired the
+  flask, we attempted to reunite Mr. Sheen with his precious flash. He responded,
+  "Last night was a shameful train wreck filled with blind cuddly puppies. Boom,
+  crush. I never want to see that thing again. Winning, duh. Sheen out." The events
+  of that evening are still as much of a mystery to us as the liquid contained within
+  this flask. Now the mystery can be yours!',
+  price: 365.05,
+  category: entertainment,
+  celebrity: charlie,
+  image_path: "http://i.imgur.com/RIwQsL4.jpg",
+  status: 1
+)
+
+Item.create(
+  title: "Broken Green Umbrella",
+  description: "You may immediately recognize this iconic umbrella used by
+  Britney in 2007 to defend herself against a vicious paparrazi attack. In the
+  last few years, Britney has warmed up to being in the spotlight again and
+  offered us the umbrella as a means of shedding her difficult past. It can't
+  shield you from the rain, but it can shield you from the prying eyes of
+  the public if you use it as a weapon and make frantic, angry jabs at people.
+  Wield with responsibility.",
+  price: 313.13,
+  category: outdoors,
+  celebrity: britney,
+  image_path: "http://i.imgur.com/XOKy4oy.jpg"
 )

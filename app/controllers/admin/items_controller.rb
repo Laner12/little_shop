@@ -20,18 +20,19 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     item = Item.find(params[:id])
-    item.update_attributes(item_params)
     if item.update_attributes(item_params)
+      item.update_image_path
       redirect_to item
     else
       flash.now[:danger] = item.errors.full_messages.join(', ')
       render :edit
     end
   end
-  
+
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :category_id, :celebrity_id, :image_path)
+    params.require(:item).permit(:title, :description, :price, :category_id, :celebrity_id, :upload_image)
   end
+
 end

@@ -4,6 +4,8 @@
 
   <%= render partial: 'shared/item_list', locals: { btn_label: 'Add to Cart', btn_class: 'default', status: false} %>
   <% if current_admin? %>
-    <%= link_to 'Add New Treasure', new_admin_item_path, class: 'btn btn-primary' %>
+    <div class="col-md-12">
+      <%= link_to 'Add New Treasure', new_admin_item_path, class: 'col-md-2 col-md-offset-10 btn btn-primary' %>
+    </div>
   <% end %>
 </div>
