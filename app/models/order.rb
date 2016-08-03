@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
   has_many :items, through: :order_items
-  enum status: %w(ordered paid cancelled completed)
+  enum status: %w(Ordered Paid Cancelled Completed)
 
   def date
     created_at.strftime("%m/%d/%Y")
@@ -26,6 +26,14 @@ class Order < ApplicationRecord
 
   def total_items
     items.reduce(0) { |initial, item| initial += item_quantity(item) }
+  end
+
+  def total_in_cents
+    total.to_f * 100
+  end
+
+  def ordered?
+    status == "Ordered"
   end
 
 end

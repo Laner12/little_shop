@@ -3,8 +3,7 @@ class Admin::BaseController < ApplicationController
 
   def require_admin
     unless current_admin?
-      flash[:danger] = "You cannot access admin content!"
-      redirect_to login_path
+      render file: '/public/404', status => 404, :layout => true
     end
   end
 end

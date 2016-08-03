@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserNotifierMailer.send_signup_email(@user).deliver
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
@@ -45,8 +46,7 @@ class UsersController < ApplicationController
         flash[:danger] = "Admins can only modify their own accounts"
         redirect_to dashboard_path
       else
-        flash[:danger] = "You cannot access admin content!"
-        redirect_to login_path
+        render file: '/public/404', status => 404, :layout => true
       end
     end
   end

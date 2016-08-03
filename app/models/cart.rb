@@ -31,4 +31,5 @@ class Cart
       CartItem.new(item_id, quantity)
     end
   end
+
 end

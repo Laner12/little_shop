@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729142108) do
+ActiveRecord::Schema.define(version: 20160802205506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,13 +31,17 @@ ActiveRecord::Schema.define(version: 20160729142108) do
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",        precision: 9, scale: 2
+    t.decimal  "price",                     precision: 9, scale: 2
     t.integer  "category_id"
     t.integer  "celebrity_id"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.string   "image_path"
-    t.integer  "status",                               default: 0
+    t.integer  "status",                                            default: 0
+    t.string   "upload_image_file_name"
+    t.string   "upload_image_content_type"
+    t.integer  "upload_image_file_size"
+    t.datetime "upload_image_updated_at"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["celebrity_id"], name: "index_items_on_celebrity_id", using: :btree
   end
@@ -68,11 +72,15 @@ ActiveRecord::Schema.define(version: 20160729142108) do
     t.string   "last_name"
     t.string   "address"
     t.string   "city"
-    t.string   "state",           default: "ZZ"
-    t.integer  "zip_code",        default: 99999
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "role",            default: 0
+    t.string   "state",              default: "ZZ"
+    t.integer  "zip_code",           default: 99999
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "role",               default: 0
+    t.string   "screen_name"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.string   "oauth_token_secret"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end

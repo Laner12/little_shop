@@ -3,12 +3,13 @@
     <%= f.label :username %>
     <%= f.text_field :username, class: 'entry' %>
   </p>
-
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'entry' %>
-  </p>
-
+  <%  %>
+  <% if new_user_path? || admin_edit? %>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'entry' %>
+    </p>
+  <% end %>
   <p>
     <%= f.label :password %>
     <%= f.password_field :password, class: 'entry' %>

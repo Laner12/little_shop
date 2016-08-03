@@ -1,12 +1,13 @@
 <div class="page-content">
   <h1>Order Details</h1>
     <div class="well col-md-12 table-responsive" id="order-<%= @order.id %>">
-      <table class="table table-hover table-striped">
+      <table class="table">
         <thead>
           <tr>
             <td colspan="5" class="text-left">
               <strong>Order # <%= @order.id %></strong>
               <p><strong>Placed: <%= @order.date %></strong></p>
+              <strong>Status: <%= @order.status %></strong>
             </td>
           </tr>
           <tr>
@@ -15,7 +16,6 @@
             <th>Quantity</th>
             <th>Unit Price</th>
             <th>Subtotal</th>
-            <th>Status</th>
             <th>Last Updated</th>
           </tr>
         </thead>
@@ -27,7 +27,6 @@
               <td><%= @order.item_quantity(item) %></td>
               <td><%= number_to_currency(item.price) %></td>
               <td><%= number_to_currency(@order.sub_total(item)) %></td>
-              <td><%= @order.status %></td>
               <td><%= @order.time_updated %></td>
             </tr>
           <% end %>

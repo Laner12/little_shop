@@ -7,7 +7,6 @@ RSpec.feature "Logged in admin can alter admin account" do
     visit login_path
 
     fill_in "Username", with: admin.username
-    fill_in "Email", with: admin.email
     fill_in "Password", with: 'password'
     click_button "Login"
 

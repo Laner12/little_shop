@@ -7,6 +7,6 @@ RSpec.describe Order, type: :model do
 
   it "should default to ordered status" do
     order = create(:order)
-    expect(order.status).to eq("ordered")
+    expect(order.status).to eq("Ordered")
   end
 end

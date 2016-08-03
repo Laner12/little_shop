@@ -16,7 +16,7 @@ RSpec.feature "Visitor sees appropriate information" do
     expect(page).to have_link("Login or Create Account to Checkout")
 
     click_on "Login or Create Account to Checkout"
-    click_on "Create an account."
+    click_on "Create an account"
 
     fill_in "Username", with: 'Ryan'
     fill_in "Email", with: 'ryan@example.com'
