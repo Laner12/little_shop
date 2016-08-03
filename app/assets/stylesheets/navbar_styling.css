@@ -6,11 +6,6 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-.well {
-  background-color: rgba(255, 255, 255, 0.60);
-  border-color: #cac9cb;
-}
-
 .navbar {
     background-color: rgba(255, 255, 255, 0.77);
     border: none;
@@ -28,7 +23,7 @@
 }
 
 .navbar-default {
-  min-height:80px;
+  min-height: 80px;
   max-height: 80px;
 }
 

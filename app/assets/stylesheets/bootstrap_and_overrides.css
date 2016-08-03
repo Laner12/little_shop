@@ -5,17 +5,40 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+  .well {
+    background-color: rgba(255, 255, 255, 0.80);
+    border-color: #cac9cb;
+  }
+
   .item-content {
     padding-left: 400px;
   }
 
+  .item-image {
+    height: 200px;
+    width: auto;
+  }
+
+  .error-image {
+    margin-top: 5%;
+  }
+
+  .show-image {
+    height: 400px;
+    width: auto;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+
   .item-show {
-    padding-left: 200px;padding-top: 50px;
+    padding-left: 200px;
+    padding-top: 50px;
   }
 
   body
   {
-    font-family: 'Droid Sans', sans-serif;
+    font-family: 'Hind', sans-serif;
+    font-size: 16px;
     padding-top: 80px;
     color: #555;
     background-image: url('http://i.imgur.com/IZno6ik.png');
@@ -44,11 +67,48 @@
   .center {
       right:46%;
       bottom: 35%;
-      transform: translate(50%,50%);
+      transform: translate(52%,25%);
       position: absolute;
   }
 
   .page-content {
     padding-right: 15px;
     padding-left: 150px;
+  }
+
+  th, td {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .filter-bar {
+    color: #232b2b;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: right;
+  }
+
+  .filter-field {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 500px;
+  }
+
+  .item-in-list {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .cart-pic {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+  }
+
+  a {
+    color: rgb(200, 181, 80);
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: rgb(59, 142, 174);
   }
