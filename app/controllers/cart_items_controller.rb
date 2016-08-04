@@ -1,11 +1,12 @@
 class CartItemsController < ApplicationController
+  include ActionView::Helpers::TextHelper
   before_action :set_item, only: [:update, :destroy]
 
   def create
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
-    flash[:success] = "#{item.title} added to cart successfully. Cart now contains #{@cart.total_items} items."
+    flash[:success] = "#{item.title} added to cart successfully. Cart now contains #{pluralize(@cart.total_items, 'item')}."
     redirect_to request.referrer
   end
 
