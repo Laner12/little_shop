@@ -88,7 +88,7 @@
   }
 
   .filter-field {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: white;
     width: 500px;
   }
 
@@ -111,4 +111,34 @@
   a:hover {
     text-decoration: none;
     color: rgb(59, 142, 174);
+  }
+
+  .btn-warning {
+    background-color: rgb(200, 181, 80);
+    border-color: rgba(85, 85, 85, 0.4);
+    margin-bottom: 20px;
+    color: rgb(85, 85, 85);
+  }
+
+  .btn-warning:hover {
+    background-color: rgb(200, 181, 80);
+    border-color: rgba(85, 85, 85, 0.4);
+    margin-bottom: 20px;
+    color: rgb(85, 85, 85);
+  }
+
+  .btn-danger {
+    background-color: rgb(200, 181, 80);
+    border-color: rgba(85, 85, 85, 0.4);
+    margin-bottom: 20px;
+    color: rgb(85, 85, 85);
+    margin-right: 25px;
+    font-weight: bold;
+  }
+
+  .btn-danger:hover {
+    background-color: rgb(200, 181, 80);
+    border-color: rgba(85, 85, 85, 0.4);
+    margin-bottom: 20px;
+    color: rgb(85, 85, 85);
   }
